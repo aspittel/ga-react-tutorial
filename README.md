@@ -29,10 +29,15 @@ React is a web framework developed by Facebook in order to make elements of user
 * On the side of the page, there are links to Github source code for each version of the code. Go ahead and look through the files and see what differences there are between the implementations. 
 * At the end, each table will point out what differences they found between the React and VanillaJS versions of TODO MVC.
 
-### Alternate Exercise: IMDBExplorer
+#### Alternate Exercise: IMDBExplorer
 * Same as above but with my IMDBExplorer app from my GA Code Sample.
 * Pro: Much simpler code, similar to how I was envisioning the code for this workshop to look.
 * Cons: Would rather not use my code, maybe not perfect implementation.
 
+## Installing React
+
+## We Do: Text Box and Likes for Facebook Post Widget
+
+## You Do: Changing Likes to Reactions
 
 
