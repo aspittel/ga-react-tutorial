@@ -40,4 +40,4 @@ React is a web framework developed by Facebook in order to make elements of user
 
 ## You Do: Changing Likes to Reactions
 
-
+## Next Steps
