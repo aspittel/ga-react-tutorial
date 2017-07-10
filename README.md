@@ -79,12 +79,6 @@ Let's walk step by step through this code.
 
 * Finally, we tell React which component we want to render as well as which HTML element we want to attach that component to. 
 
-#### Exercise: Renaming and Replacing Components
-* Rename the component to `Status` and make the component render the HTML code from the `START.html` file.
-
-* CATCH: in React, we call the class attribute className since class is a keyword reserved for declaring a JavaScript class. Replace teh class attribute with className throughout your file.
-
-TODO: I think it will be easier to have a new HTML file here instead.
 
 ### Breaking Components into Subcomponents
 At the beginning of this workshop, we discussed how many different places the reaction functionality is used on Facebook. Similarly, many of the items on our Facebook status widget are reused in other places outside of statuses. This is where React shines. We can build reusable components that are used within multiple parent components -- so we could have a Photo component and a Status component that both have a share subcomponent. If, in the future, we wanted to change something about the share component, we would only have to change the code in one place.
@@ -92,7 +86,7 @@ At the beginning of this workshop, we discussed how many different places the re
 #### Exercise: Identifying Subcomponents
 * With the people at your table, discuss where we should break our app down into further subcomponents. Write your group's answers on the whiteboard table.
 
-After this excercise, copy and paste the code from SUBCOMPONENTS.jsx into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
+After this excercise, copy and paste the code from SUBCOMPONENTS.html into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
 
 The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component. We can even use multiple instances of a subcomponent within a parent component.
 
