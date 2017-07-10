@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- Bootstrap 4 Styling -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- FontAwesome Icons -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- React CDNS -->
+        <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+        <!-- Babel Compiler -->
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <style>
+            body {
+                background-color: #ccc;
+            }
+            .my-4 {
+                margin-bottom: 0px !important;
+            }
+            .profile-pic {
+                height: 50px;
+                width: 50px;
+            }
+            .post-time {
+                color: #90949c;
+            }
+            .blue-icon {
+                color: #0099ff;
+            }
+            .no-outline {
+                border-color: white !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/jsx">
+            class LikeIcon extends React.Component {
+                constructor (props) {
+                    super(props)
+                }
+                render () {
+                    if (this.props.liked) {
+                        return (
+                            <div>
+                                <span className="fa-stack fa-sm">
+                                    <i className="fa fa-circle fa-stack-2x blue-icon"></i>
+                                    <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </div>
+                        )
+                    } else {
+                      return null
+                    }
+                }
+            }
+
+            class Like extends React.Component {
+                constructor (props) {
+                    super(props)
+                    this.state = {
+                        liked: false
+                    }
+                }
+
+                toggleLike () {
+                    this.setState({
+                        liked: !this.state.liked
+                    })
+                }
+
+                render () {
+                    return (
+                        <div>
+                            <LikeIcon liked={this.state.liked} />
+                            <hr className="my-4"></hr>
+                            <div>
+                                <button type="button" 
+                                        className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
+                                        onClick={ this.toggleLike.bind(this) }
+                                        >
+                                    <i className="fa fa-thumbs-o-up fa-4 align-middle" aria-hidden="true"></i>
+                                    &nbsp;
+                                    <span className="align-middle">Like</span>
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+            }
+
+            class Comment extends React.Component {
+                constructor (props) {
+                    super(props)
+                    this.state = {
+                        text: ''
+                    }
+                    this.handleChange = this.handleChange.bind(this)
+                }
+
+                handleChange (event) {
+                    this.setState({
+                        text: event.target.value
+                    })
+                }
+
+                render () {
+                    return (
+                        <div>
+                            <textarea className="form-control" 
+                                      placeholder="Write a comment..." 
+                                      onChange={ this.handleChange }
+                                      >
+                            </textarea>
+                            <small style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>{ this.props.maxLetters - this.state.text.length } Remaining</small>
+                        </div>
+                    )
+                }
+            }
+
+            class Status extends React.Component {
+                render () {
+                    return (
+                        <div className="col-6 offset-3">
+                            <div className="card">
+                                <div className="card-block">
+                                    <div className="row">
+                                        <div className="col-2">
+                                            <img src="ga-logo.png" className="profile-pic"></img>
+                                        </div>
+                                        <div className="col-10">
+                                            <div className="row">
+                                                <a href="">General Assembly</a>
+                                            </div>
+                                            <div className="row">
+                                                <small className="post-time">10 mins</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br></br>
+                                    <p>Hello World!</p>
+                                    <Like />
+                                </div>
+                                <div className="card-footer text-muted">
+                                    <Comment maxLetters={100} />
+                                </div>
+                            </div>
+                        </div>              
+                     )
+                }
+            }
+
+            const element = <Status/>
+
+            ReactDOM.render(
+              element,
+              document.getElementById('root')
+            )
+        </script>
+    </body>
+</html>
