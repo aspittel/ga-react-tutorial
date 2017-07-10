@@ -94,7 +94,54 @@ At the beginning of this workshop, we discussed how many different places the re
 
 After this excercise, copy and paste the code from SUBCOMPONENTS.jsx into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
 
+The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component.
+
 ## State and Props
+Even though our HTML code is now more modular and reusable, it still just renders the exact same view that our original HTML file did. In this section of the workshop we will start the process of making our components interactive.
+
+### Props
+Imagine that we wanted our comment box to allow for a different number of letters in different places. On a status, for example, we want a user to be allowed to write a 200 letter long response. On a picture, however, we want them to only be able to write a 100 character response. React allows us to pass arguments from the Picture component and the Status component to specify how many letters we want to allow in our response, rather than having two different comment components.
+
+#### Constructors
+In order to utilize the property functionality in React, we must declare a constructor on our classes. A constructor is a special method that is called automatically when we instantiate our component and declares properties that can be used within it. The constructor will take the props argument and then call `super(props)` which will then call the constructor of the React.Component class with the props passed to the instance of our component. If you don't get this, don't worry about it for now -- [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) is a good resource for learning more about constructors and super in JavaScript.
+
+```javascript
+class Comment extends React.Component {
+    constructor (props) {
+        super(props)
+    }
+    ...
+}
+```
+
+#### Props Syntax
+Passing props to components follows the following syntax:
+```javascript
+<Comment maxLetters={20} />
+<Comment text='hello world' />
+<Comment show={false} />
+
+var test = 'hello world'
+<Comment text={test} />
+```
+Text is passed within quotation marks. Variables, numbers, and booleans are passed within single brackets.
+
+### State
+Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
+
+The state of the component is any data that will change within it. For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component.
+
+In order to store that data, we will add a constructor to our JavaScript class 
+```javascript
+class Like extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            liked: false
+        }
+    }
+```
+
 ## Event listeners
 ## Conditional Rendering, Classes, and Styles 
 
