@@ -8,9 +8,10 @@ In this workshop, we will be learning the basics of the React JavaScript framewo
 * Understand what makes React different from other JavaScript frameworks and JavaScript without a framwork.
 * Install and setup React.
 * Understand best practices for React setup.
-* Introduce concept of state in React.
-* Introduce concept of interactivity in React.
-* Work on building a sample status widget.
+* Have access to and work on building a sample project in React.
+* Begin working with state + props in React.
+* Begin working with event handlers in React.
+* Begin working with conditionals in React.
 
 ## Introduction to React
 React is a web framework developed by Facebook in order to make elements of user interfaces more modular and easier to maintain. According to React's website it is used to "Build encapsulated components that manage their own state, then compose them to make complex UIs."
