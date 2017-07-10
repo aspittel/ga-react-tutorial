@@ -50,26 +50,26 @@ For this workshop, due to time constraints, we will be using CDN versions of Rea
 ## React Components
 If you open up the REACT.html file included in the repository you downloaded from GitHub, you will see a Hello World React component written in the file to start out.
 ```javascript
-        <div id="root"></div>
-        <script type="text/jsx">
-            // Uses a JavaScript class that extends the React Component class
-            class HelloWorld extends React.Component {
-                render () {
-                    // Tells React what HTML code to render
-                    return (
-                        <div>
-                            <h1>Hello World</h1>
-                        </div>
-                    )
-                }
-            }
-                        
-            // Tells React to attach the HelloWorld component to the 'root' HTML div
-            ReactDOM.render(
-                <HelloWorld />,
-                document.getElementById('root')
+<div id="root"></div>
+<script type="text/jsx">
+    // Uses a JavaScript class that extends the React Component class
+    class HelloWorld extends React.Component {
+        render () {
+            // Tells React what HTML code to render
+            return (
+                <div>
+                    <h1>Hello World</h1>
+                </div>
             )
-        </script>
+        }
+    }
+
+    // Tells React to attach the HelloWorld component to the 'root' HTML div
+    ReactDOM.render(
+        <HelloWorld />,
+        document.getElementById('root')
+    )
+</script>
 ```
 Let's walk step by step through this code.
 
