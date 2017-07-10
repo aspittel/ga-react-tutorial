@@ -35,8 +35,10 @@
     <body>
         <div id="root"></div>
         <script type="text/jsx">
+            // Uses a JavaScript class that extends the React Component class
             class HelloWorld extends React.Component {
                 render () {
+                    // Tells React what HTML code to render
                     return (
                         <div>
                             <h1>Hello World</h1>
@@ -44,6 +46,12 @@
                     )
                 }
             }
+                        
+            // Tells React to attach the HelloWorld component to the 'root' HTML div
+            ReactDOM.render(
+                <HelloWorld />,
+                document.getElementById('root')
+            )
         </script>
     </body>
 </html>
