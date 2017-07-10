@@ -13,7 +13,7 @@ In this workshop, we will be learning the basics of the React JavaScript framewo
 * Work on building a sample status widget.
 
 ## Introduction to React
-React is a web framework developed by Facebook in order to make elements of user interfaces more modular and easier to maintain. According to React's website it is used to "Build encapsulated components that manage their own state, then compose them to make complex UIs." 
+React is a web framework developed by Facebook in order to make elements of user interfaces more modular and easier to maintain. According to React's website it is used to "Build encapsulated components that manage their own state, then compose them to make complex UIs."
 
 #### Example: Facebook Reactions
 * Imagine you worked at Facebook when they wanted to shift from using likes to reactions.
@@ -35,6 +35,7 @@ React is a web framework developed by Facebook in order to make elements of user
 * Cons: Would rather not use my code, maybe not perfect implementation.
 
 ## Installing React
+For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset. A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/).
 
 ## We Do: Text Box and Likes for Facebook Post Widget
 
