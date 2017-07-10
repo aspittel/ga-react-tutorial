@@ -94,7 +94,7 @@ At the beginning of this workshop, we discussed how many different places the re
 
 After this excercise, copy and paste the code from SUBCOMPONENTS.jsx into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
 
-The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component.
+The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component. We can even use multiple instances of a subcomponent within a parent component.
 
 ## State and Props
 Even though our HTML code is now more modular and reusable, it still just renders the exact same view that our original HTML file did. In this section of the workshop we will start the process of making our components interactive.
@@ -125,6 +125,9 @@ var test = 'hello world'
 <Comment text={test} />
 ```
 Text is passed within quotation marks. Variables, numbers, and booleans are passed within single brackets.
+
+In order to show the value of the property within our component, we can use a similar expression.
+```html <small>{ this.props.maxLetters } Remaining</small>```
 
 ### State
 Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
