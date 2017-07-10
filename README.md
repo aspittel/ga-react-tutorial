@@ -132,6 +132,9 @@ In order to show the value of the property within our component, we can use a si
 ```
 Now lets add this to our status code.
 
+#### Exercise: Extending LikeIcon Code
+Add a constructor to the LikeIcon. For now, pass liked as true from Like to the LikeIcon component.
+
 ### State
 Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
 
@@ -153,11 +156,87 @@ We can refer to the state of our component similarly to the props.
 ```
 
 #### Excercise: identifying and implementing state in the Comment component
-What do you think changes within the comment component? Add the state and property to its constructor.
+What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
 
-## Event listeners
-Now that we have identified 
+## Event Handlers
+Now that we have identified which elements of our components are interactive, and which parts of the state will change, lets start working on actually making them react to user interaction. In regular HTML you may have used  `onclick` listeners in your code that execute a JavaScript function when the user clicks on a button. This is very similar to how we handle interaction in React.
 
-## Conditional Rendering, Classes, and Styles 
+In React, the event handlers share the same names with the HTML ones, they are just camelCase instead of all lower case. So, onclick is onClick and onchange is onChange.
+
+Let's first start out with handling the user input on the comment box. We can write a function that writes a message when the textarea changes.
+```javascript
+handleChange (event) {
+    console.log('hello world')
+}
+...
+<textarea onChange={ this.handleChange }>
+```
+React will automatically pass the data from the event to the method. If you are interested in what data is passed, you can console.log(event) instead of 'hello world'.
+
+Usually when we have an event listener, we will want to update the state of the component based on that event. In this case we want to update the text of the component.
+
+First, we need to make sure that the keyword `this` is accessible within our method. We can add `this.handleChange = this.handleChange.bind(this)` to the constructor in order to do this automatically.
+
+In order to change the state of the component, we can use the setState method, which looks like this: 
+```javascript
+this.setState({
+    text: event.target.value
+})
+```
+
+We can then make the letters remaining count dynamic.
+```javascript
+ <small>{ this.props.maxLetters - this.state.text.length } Remaining</small>
+```
+
+#### Exercise: Adding an Event Listener to the Like Button
+Add an event listener to the Like Button to update the state of the component. 
+
+## Conditionals
+### Rendering
+In the Like component, we want to render the LikeIcon only if the status is liked. This will look very similar to any other JavaScript if statement. In the render method, we will return one thing if the status is liked, and nothing if it is not.
+```javascript
+render () {
+    if (this.props.liked) {
+        return (
+            <div>
+                <span className="fa-stack fa-sm">
+                    <i className="fa fa-circle fa-stack-2x blue-icon"></i>
+                    <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+        )
+    } else {
+      return null
+    }
+}
+```
+Catch: You must return something from the else statement (null does work), omitting the else will cause an error.
+
+### ClassNames
+We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a terniary statement, but you could abstract this out to a method or use a state variable as the entire class name.
+```javascript                                
+<button type="button" 
+        className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
+        onClick={ this.toggleLike }
+>
+```
+
+### Styles
+Similarly, we can conditionally change the style of an element. React does follow a different syntax than normal CSS, and some properties have slightly different names. You can read more [here](https://facebook.github.io/react/docs/dom-elements.html).
+```javascript
+<small style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>{ this.props.maxLetters - this.state.text.length } Remaining</small>
+```
 
 ## Next Steps
+### Extending our Exercise:
+#### Exercise: Changing Likes to Reactions
+Try to implement many different styles of likes using React components.
+
+#### Exercise: Create a Photo Component
+Try to create a Photo Post Component in React. Re-use subcomponents from earlier in this workshop.
+
+### Tutorials
+* [React Documentation](https://facebook.github.io/react/tutorial/tutorial.html)
+* [DevCoffee](https://www.youtube.com/watch?v=ZnRFerIP8aA)
+* [Wes Bos Redux](https://www.youtube.com/watch?v=hmwBow1PUuo&list=PLu8EoSxDXHP5uyzEWxdlr9WQTJJIzr6jy)
