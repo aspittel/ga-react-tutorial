@@ -127,14 +127,17 @@ var test = 'hello world'
 Text is passed within quotation marks. Variables, numbers, and booleans are passed within single brackets.
 
 In order to show the value of the property within our component, we can use a similar expression.
-```html <small>{ this.props.maxLetters } Remaining</small>```
+```javascript
+<small>{ this.props.maxLetters } Remaining</small>
+```
+Now lets add this to our status code.
 
 ### State
 Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
 
 The state of the component is any data that will change within it. For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component.
 
-In order to store that data, we will add a constructor to our JavaScript class 
+In order to store that data, we will add a constructor to our JavaScript class and add the state declaration within it. It is just a normal JavaScript object. 
 ```javascript
 class Like extends React.Component {
     constructor (props) {
@@ -144,12 +147,17 @@ class Like extends React.Component {
         }
     }
 ```
+We can refer to the state of our component similarly to the props.
+```javascript
+{ this.state.liked }
+```
+
+#### Excercise: identifying and implementing state in the Comment component
+What do you think changes within the comment component? Add the state and property to its constructor.
 
 ## Event listeners
+Now that we have identified 
+
 ## Conditional Rendering, Classes, and Styles 
-
-## We Do: Text Box and Likes for Facebook Post Widget
-
-## You Do: Changing Likes to Reactions
 
 ## Next Steps
