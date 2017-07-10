@@ -43,8 +43,8 @@ For this workshop, due to time constraints, we will be using CDN versions of Rea
 #### Project Set Up
 * For this workshop, the only technical tool you need installed is a text editor and a web browser. If you do not have one installed, please go ahead and download [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/).
 * If you have git installed on your computer, clone this repository. If not, you can also click the download button on the GitHub site to download the starter code files.
-* Open the `START.html` file on your computer in both your text editor and in the browser. 
-* Also open the `REACT.html` file in another tab in your text editor.
+* Open the `1-START_HTML.html` file on your computer in both your text editor and in the browser. 
+* Also open the `2-START_REACT.html` file in another tab in your text editor.
 * This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
 
 # Project: Recreating the Facebook Status Widget in React
