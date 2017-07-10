@@ -35,7 +35,22 @@ React is a web framework developed by Facebook in order to make elements of user
 * Cons: Would rather not use my code, maybe not perfect implementation.
 
 ## Installing React
+
+#### Our Set Up vs. Production Set Up
 For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset. A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/).
+
+#### Project Set Up
+* For this workshop, the only technical tool you need installed is a text editor and a web browser. If you do not have one installed, please go ahead and download [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/).
+* If you have git installed on your computer, clone this repository. If not, you can also click the download button on the GitHub site to download the starter code files.
+* Open the `START.html` file on your computer in both your text editor and in the browser. 
+* Also open the `REACT.html` file in another tab in your text editor.
+* This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
+
+## Topics
+* Components 
+* State
+* Event listeners
+* Conditional Properties 
 
 ## We Do: Text Box and Likes for Facebook Post Widget
 
