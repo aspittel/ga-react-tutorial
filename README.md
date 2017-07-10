@@ -46,12 +46,46 @@ For this workshop, due to time constraints, we will be using CDN versions of Rea
 * Also open the `REACT.html` file in another tab in your text editor.
 * This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
 
-## Topics
-* Components 
-* State
-* Event listeners
-* Conditional Properties 
+# Project: Recreating a Facebook Status Widget in React
+## React Components
+If you open up the REACT.html file included in the repository you downloaded from GitHub, you will see a Hello World React component written in the file to start out.
+```javascript
+        <div id="root"></div>
+        <script type="text/jsx">
+            // Uses a JavaScript class that extends the React Component class
+            class HelloWorld extends React.Component {
+                render () {
+                    // Tells React what HTML code to render
+                    return (
+                        <div>
+                            <h1>Hello World</h1>
+                        </div>
+                    )
+                }
+            }
+                        
+            // Tells React to attach the HelloWorld component to the 'root' HTML div
+            ReactDOM.render(
+                <HelloWorld />,
+                document.getElementById('root')
+            )
+        </script>
+```
+Let's walk step by step through this code.
 
+* The JavaScript code starts out with declaring a class called `HelloWorld` which is a subclass of the React.Component class, which we get from the React CDN we have included at the top of the HTML file. To read more about JavaScript classes, [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) is a great resource.
+
+* Within the `HelloWorld` class, we declare a render method which returns the HTML code that we want our component to display. In this case, that is a simple "Hello World" message, but you will see later on that what we render can be much more complex and interactive.
+
+* Finally, we tell React which component we want to render as well as which HTML element we want to attach that component to. 
+
+#### Exercise: Renaming and Replacing Components
+* Rename the component to `Status` and make the component render the HTML code from the `START.html` file.
+
+## State
+## Event listeners
+## Conditional Properties 
+## Props???
 ## We Do: Text Box and Likes for Facebook Post Widget
 
 ## You Do: Changing Likes to Reactions
