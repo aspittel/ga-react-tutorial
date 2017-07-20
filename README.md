@@ -240,7 +240,10 @@ We can also have different classNames on HTML elements depending on the props or
 ### Styles
 Similarly, we can conditionally change the style of an element. React does follow a different syntax than normal CSS, and some properties have slightly different names. You can read more [here](https://facebook.github.io/react/docs/dom-elements.html).
 ```javascript
-<small style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>{ this.props.maxLetters - this.state.text.length } Remaining</small>
+<small
+  style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>
+  { this.props.maxLetters - this.state.text.length } Remaining
+</small>
 ```
 
 ## Next Steps
