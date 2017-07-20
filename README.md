@@ -101,8 +101,12 @@ At the beginning of this workshop, we discussed how many different places the re
 #### Exercise: Identifying Subcomponents
 * With the people at your table, discuss where we should break our app down into further subcomponents. Write your group's answers on the whiteboard table.
 
+<<<<<<< HEAD
 ### Using Subcomponents
 After this exercise, open the SUBCOMPONENTS.html file. GO THROUGH THE SUBCOMPONENTS IN OUR PROJECT HERE-- GO THROUGH WHICH ONE THEY WILL BE DOING AND WHICH ONE WE WILL BE DOING. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
+=======
+After this exercise, copy and paste the code from SUBCOMPONENTS.html into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards. The other thing that changed with this file is that I changed class to className which is a requirement with React.
+>>>>>>> master
 
 The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component. We can even use multiple instances of a subcomponent within a parent component.
 
@@ -180,13 +184,16 @@ For the like button, the data that changes is whether or not the status has been
 
 * Add a constructor to the LikeIcon component.
 * Add state to the constructor.
-* Add a `liked` key to the object with the value `false`.
+* Add a `liked` key to the state object with the value `false`.
 * Display the value of the `liked` state within the component.
 
+<<<<<<< HEAD
 What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
 
 FIST TO FIVE HERE
 
+=======
+>>>>>>> master
 ## Event Handlers
 Now that we have identified which elements of our components are interactive, and which parts of the state will change, lets start working on actually making them react to user interaction. In regular HTML you may have used  `onclick` listeners in your code that execute a JavaScript function when the user clicks on a button. This is very similar to how we handle interaction in React.
 
@@ -250,7 +257,7 @@ render () {
 Catch: You must return something from the else statement (null does work), omitting the else will cause an error.
 
 ### ClassNames
-We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a terniary statement, but you could abstract this out to a method or use a state variable as the entire class name.
+We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a ternary statement, but you could abstract this out to a method or use a state variable as the entire class name.
 ```javascript                                
 <button type="button"
         className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
@@ -261,11 +268,19 @@ We can also have different classNames on HTML elements depending on the props or
 ### Styles
 Similarly, we can conditionally change the style of an element. React does follow a different syntax than normal CSS, and some properties have slightly different names. You can read more [here](https://facebook.github.io/react/docs/dom-elements.html).
 ```javascript
-<small style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>{ this.props.maxLetters - this.state.text.length } Remaining</small>
+<small
+  style={{ color: this.state.text.length > this.props.maxLetters ? '#d9534f' : '#5cb85c' }}>
+  { this.props.maxLetters - this.state.text.length } Remaining
+</small>
 ```
 
 ## Next Steps
+<<<<<<< HEAD
 If you ended up missing any part of the final code, the `4-FINISH.html` file contains the finished code.
+=======
+The finished code is in `4-FINISH.html` in case you want to look back at anything we went through today.
+
+>>>>>>> master
 
 ### Extending our Exercise:
 #### Exercise: Changing Likes to Reactions

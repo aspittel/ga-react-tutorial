@@ -11,6 +11,7 @@
         <!-- Babel Compiler -->
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
         <style>
+            /* Overriding default Bootstrap styling */
             body {
                 background-color: #ccc;
             }
@@ -75,7 +76,7 @@
                             <LikeIcon liked={this.state.liked} />
                             <hr className="my-4"></hr>
                             <div>
-                                <button type="button" 
+                                <button type="button"
                                         className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
                                         onClick={ this.toggleLike.bind(this) }
                                         >
@@ -107,8 +108,8 @@
                 render () {
                     return (
                         <div>
-                            <textarea className="form-control" 
-                                      placeholder="Write a comment..." 
+                            <textarea className="form-control"
+                                      placeholder="Write a comment..."
                                       onChange={ this.handleChange }
                                       >
                             </textarea>
@@ -145,7 +146,7 @@
                                     <Comment maxLetters={100} />
                                 </div>
                             </div>
-                        </div>              
+                        </div>
                      )
                 }
             }
