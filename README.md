@@ -149,6 +149,8 @@ You can now add two status boxes with different numbers of remaining letters.
 
 There are comments in the code on where to add the components.
 
+SOMEONE WRITE ON BOARD WHAT THEIR ANSWER WAS
+
 ### State
 Looking at the finished code, we want the like button and the the comment box to be interactive and update based on user input.
 
@@ -173,7 +175,7 @@ We can refer to the state of our component similarly to the props.
 
 If we change the value of `text`, we will see a different value on our component.
 
-#### Excercise: identifying and implementing state in the LikeIcon component
+#### Exercise: identifying and implementing state in the LikeIcon component
 For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component. Follow the same steps that we did for the Comment component.
 
 * Add a constructor to the LikeIcon component.
@@ -182,6 +184,8 @@ For the like button, the data that changes is whether or not the status has been
 * Display the value of the `liked` state within the component.
 
 What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
+
+FIST TO FIVE HERE
 
 ## Event Handlers
 Now that we have identified which elements of our components are interactive, and which parts of the state will change, lets start working on actually making them react to user interaction. In regular HTML you may have used  `onclick` listeners in your code that execute a JavaScript function when the user clicks on a button. This is very similar to how we handle interaction in React.
@@ -221,6 +225,8 @@ Add an event listener to the Like Button to update the state of the component.
 * Set the state of the component to toggle the liked property on click.
 * Set the property on the button to call the `handleClick` method on Click.
 * Bind the this keyword to the `handleClick` method in the constructor.
+
+WALK THROUGH CODE WITH NEIGHBOR
 
 ## Conditionals
 ### Rendering
