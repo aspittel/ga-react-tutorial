@@ -90,7 +90,7 @@ At the beginning of this workshop, we discussed how many different places the re
 #### Exercise: Identifying Subcomponents
 * With the people at your table, discuss where we should break our app down into further subcomponents. Write your group's answers on the whiteboard table.
 
-After this excercise, copy and paste the code from SUBCOMPONENTS.html into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
+After this exercise, copy and paste the code from SUBCOMPONENTS.html into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards. The other thing that changed with this file is that I changed class to className which is a requirement with React.
 
 The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component. We can even use multiple instances of a subcomponent within a parent component.
 
@@ -151,6 +151,7 @@ class Comment extends React.Component {
            text: ''
         }
     }
+}
 ```
 We can refer to the state of our component similarly to the props.
 ```javascript
@@ -159,15 +160,13 @@ We can refer to the state of our component similarly to the props.
 
 If we change the value of `text`, we will see a different value on our component.
 
-#### Excercise: identifying and implementing state in the LikeIcon component
+#### Exercise: identifying and implementing state in the LikeIcon component
 For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component. Follow the same steps that we did for the Comment component.
 
 * Add a constructor to the LikeIcon component.
 * Add state to the constructor.
-* Add a `liked` key to the object with the value `false`.
+* Add a `liked` key to the state object with the value `false`.
 * Display the value of the `liked` state within the component.
-
-What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
 
 ## Event Handlers
 Now that we have identified which elements of our components are interactive, and which parts of the state will change, lets start working on actually making them react to user interaction. In regular HTML you may have used  `onclick` listeners in your code that execute a JavaScript function when the user clicks on a button. This is very similar to how we handle interaction in React.
@@ -230,7 +229,7 @@ render () {
 Catch: You must return something from the else statement (null does work), omitting the else will cause an error.
 
 ### ClassNames
-We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a terniary statement, but you could abstract this out to a method or use a state variable as the entire class name.
+We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a ternary statement, but you could abstract this out to a method or use a state variable as the entire class name.
 ```javascript                                
 <button type="button"
         className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
@@ -245,6 +244,8 @@ Similarly, we can conditionally change the style of an element. React does follo
 ```
 
 ## Next Steps
+The finished code is in `4-FINISH.html` in case you want to look back at anything we went through today.
+
 ### Extending our Exercise:
 #### Exercise: Changing Likes to Reactions
 Try to implement many different styles of likes using React components.
