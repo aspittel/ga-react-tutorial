@@ -23,12 +23,14 @@ React is a web framework developed by Facebook in 2013 in order to make elements
 * Imagine you worked at Facebook when they wanted to shift from using likes to reactions.
 * Using traditional JavaScript, HTML, and CSS would it be easy and to implement these reactions in multiple places? Would there be repeated code between the different reaction components?
 * React makes it easy to utilize UI components in multiple locations because instead of separating your HTML and JavaScript code, it uses JavaScript in order to write your HTML code.
+ADD TIMER HERE
 
 #### Exercise: IMDBExplorer
 * With the other people at your table, look at the code on the [IMDBExplorer Github Repository](https://github.com/aspittel/IMDBExplorer). The app pulls movies that fit a search term and then the user can look at more detail or favorite the movies.
 * The app is hosted here: https://imdb-api-app.herokuapp.com/, unfortunately the API has been made private so it doesn't really work.
-* Check out the code in `views/index.html` and `public/imdb_api_app.js`. This branch was written using vanilla JavaScript and HTML. Also look at the code on the `react` branch by using the dropdown on the Github Repository.
+* Check out the code in `views/index.html` and `public/imdb_api_app.js`. This branch was written using vanilla JavaScript and HTML. Also look at the code on the `react` branch by using the dropdown on the Github Repository. EXPLAIN VANILLA JS HERE.
 * With your neighbor, discuss what differences you see between the React code and the vanilla JavaScript code. Write down your findings on the table next to you.
+ADD TIMER HERE
 
 #### Alternate Exercise: TODO MVC
 * With the other people at your table, look at the code on the [TodoMVC](http://todomvc.com/) website. This site shows the same to do list application written in a bunch of different front end frameworks.
@@ -41,40 +43,49 @@ React is a web framework developed by Facebook in 2013 in order to make elements
 ## Installing React
 
 #### Our Set Up vs. Production Set Up
-For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset. A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/). We will also be using inline JavaScript rather than separating the JavaScript and HTML files due to a Chrome specification. We would also want to do that in a production environment.
+For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features GO OVER BABEL HERE), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset.
+
+ A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/). We will also be using inline JavaScript rather than separating the JavaScript and HTML files due to a Chrome specification. We would also want to do that in a production environment.
+
+There are also a lot of tools out there which will help you develop React applications, such as React Router, which allows you to create a single page application within React; React Dev Tools, which allows for better debugging in the Chrome console; and text-editor plugins which will allow for linting and syntax highlighting within your React code.
 
 #### Project Set Up
 * For this workshop, the only technical tool you need installed is a text editor and a web browser. If you do not have one installed, please go ahead and download [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/).
 * If you have git installed on your computer, clone this repository. If not, you can also click the download button on the GitHub site to download the starter code files.
 * Open the `1-START_HTML.html` file on your computer in both your text editor and in the browser.
-* Also open the `2-START_REACT.html` file in another tab in your text editor.
+GO OVER THE PROJECT HERE.
+* Also open the `2-START_REACT.html` file in another tab in your text editor and in the browser.
 * This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
 
 ## React Components
 If you open up the REACT.html file included in the repository you downloaded from GitHub, you will see a Hello World React component written in the file to start out.
 ```javascript
-<div id="root"></div>
-<script type="text/jsx">
-    // Uses a JavaScript class that extends the React Component class
-    class HelloWorld extends React.Component {
-        render () {
-            // Tells React what HTML code to render
-            return (
-                <div>
-                    <h1>Hello World</h1>
-                </div>
-            )
-        }
-    }
+<body>
+  <div id="root"></div>
+  <script type="text/jsx">
+      // Uses a JavaScript class that extends the React Component class
+      class HelloWorld extends React.Component {
+          render () {
+              // Tells React what HTML code to render
+              return (
+                  <div>
+                      <h1>Hello World</h1>
+                  </div>
+              )
+          }
+      }
 
-    // Tells React to attach the HelloWorld component to the 'root' HTML div
-    ReactDOM.render(
-        <HelloWorld />,
-        document.getElementById('root')
-    )
-</script>
+      // Tells React to attach the HelloWorld component to the 'root' HTML div
+      ReactDOM.render(
+          <HelloWorld />,
+          document.getElementById('root')
+      )
+  </script>
+</body>
 ```
 Let's walk step by step through this code:
+
+TWO STEPS --> CREATING COMPONENT, THEN RENDERING IT ON THE PAGE
 
 * The JavaScript code starts out with declaring a class called `HelloWorld` which is a subclass of the React.Component class, which we get from the React CDN we have included at the top of the HTML file. To read more about JavaScript classes, [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) is a great resource.
 
@@ -90,7 +101,8 @@ At the beginning of this workshop, we discussed how many different places the re
 #### Exercise: Identifying Subcomponents
 * With the people at your table, discuss where we should break our app down into further subcomponents. Write your group's answers on the whiteboard table.
 
-After this excercise, copy and paste the code from SUBCOMPONENTS.html into your script tags. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
+### Using Subcomponents
+After this exercise, open the SUBCOMPONENTS.html file. GO THROUGH THE SUBCOMPONENTS IN OUR PROJECT HERE-- GO THROUGH WHICH ONE THEY WILL BE DOING AND WHICH ONE WE WILL BE DOING. There are multiple correct ways to break the component into subcomponents, it will just be easier for us to all be on the same page going forwards.
 
 The syntax to include one React component within another is very similar to the way we call regular HTML tags -- for a HelloWorld component we would write <HelloWorld /> where we want it within the render method of the parent component. We can even use multiple instances of a subcomponent within a parent component.
 
@@ -101,7 +113,7 @@ Even though our HTML code is now more modular and reusable, it still just render
 Imagine that we wanted our comment box to allow for a different number of letters in different places. On a status, for example, we want a user to be allowed to write a 200 letter long response. On a picture, however, we want them to only be able to write a 100 character response. React allows us to pass arguments from the Picture component and the Status component to specify how many letters we want to allow in our response, rather than having two different comment components.
 
 #### Constructors
-In order to utilize the property functionality in React, we must declare a constructor on our classes. A constructor is a special method that is called automatically when we instantiate our component and declares properties that can be used within it. The constructor will take the props argument and then call `super(props)` which will then call the constructor of the React.Component class with the props passed to the instance of our component. If you don't get this, don't worry about it for now -- [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) is a good resource for learning more about constructors and super in JavaScript.
+In order to utilize the props functionality in React, we must declare a constructor on our classes. A constructor is a special method that is called automatically when we instantiate our component and declares properties that can be used within it. The constructor will take the props argument and then call `super(props)` which will then call the constructor of the React.Component class with the props passed to the instance of our component. If you don't get this, don't worry about it for now -- [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor) is a good resource for learning more about constructors and super in JavaScript.
 
 ```javascript
 class Comment extends React.Component {
@@ -148,10 +160,12 @@ class Comment extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-           text: ''
+           text: ""
         }
     }
+}
 ```
+
 We can refer to the state of our component similarly to the props.
 ```javascript
 { this.state.text }
@@ -245,6 +259,8 @@ Similarly, we can conditionally change the style of an element. React does follo
 ```
 
 ## Next Steps
+If you ended up missing any part of the final code, the `4-FINISH.html` file contains the finished code.
+
 ### Extending our Exercise:
 #### Exercise: Changing Likes to Reactions
 Try to implement many different styles of likes using React components.
