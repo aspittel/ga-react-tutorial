@@ -246,6 +246,7 @@ Similarly, we can conditionally change the style of an element. React does follo
 ## Next Steps
 The finished code is in `4-FINISH.html` in case you want to look back at anything we went through today.
 
+
 ### Extending our Exercise:
 #### Exercise: Changing Likes to Reactions
 Try to implement many different styles of likes using React components.
