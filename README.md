@@ -14,15 +14,23 @@ In this workshop, we will be learning the basics of the React JavaScript framewo
 * Begin working with conditionals in React.
 
 ## Introduction to React
-React is a web framework developed by Facebook in order to make elements of user interfaces more modular and easier to maintain. According to React's website it is used to "Build encapsulated components that manage their own state, then compose them to make complex UIs."
+React is a web framework developed by Facebook in 2013 in order to make elements of user interfaces more modular and easier to maintain. According to React's website it is used to "Build encapsulated components that manage their own state, then compose them to make complex UIs."
 
 #### Example: Facebook Reactions
+* Look at your Facebook and see how many different places reactions are used. Write down on the table next to you (its a whiteboard!) the places you find reactions. Different post types count as different places!
+
+
 * Imagine you worked at Facebook when they wanted to shift from using likes to reactions.
-* Look at your Facebook and see how many different places reactions are used.
 * Using traditional JavaScript, HTML, and CSS would it be easy and to implement these reactions in multiple places? Would there be repeated code between the different reaction components?
 * React makes it easy to utilize UI components in multiple locations because instead of separating your HTML and JavaScript code, it uses JavaScript in order to write your HTML code.
 
-#### Exercise: TODO MVC
+#### Exercise: IMDBExplorer
+* With the other people at your table, look at the code on the [IMDBExplorer Github Repository](https://github.com/aspittel/IMDBExplorer). The app pulls movies that fit a search term and then the user can look at more detail or favorite the movies.
+* The app is hosted here: https://imdb-api-app.herokuapp.com/, unfortunately the API has been made private so it doesn't really work.
+* Check out the code in `views/index.html` and `public/imdb_api_app.js`. This branch was written using vanilla JavaScript and HTML. Also look at the code on the `react` branch by using the dropdown on the Github Repository.
+* With your neighbor, discuss what differences you see between the React code and the vanilla JavaScript code. Write down your findings on the table next to you.
+
+#### Alternate Exercise: TODO MVC
 * With the other people at your table, look at the code on the [TodoMVC](http://todomvc.com/) website. This site shows the same to do list application written in a bunch of different front end frameworks. 
 * For this exercise, look at the [VanillaJS](http://todomvc.com/examples/vanillajs/) and [React](http://todomvc.com/examples/react/#/) examples on their site.
 * Vanilla is what developers use to refer to JavaScript that doesn't make use of a framework.
@@ -30,24 +38,18 @@ React is a web framework developed by Facebook in order to make elements of user
 * On the side of the page, there are links to Github source code for each version of the code. Go ahead and look through the files and see what differences there are between the implementations. 
 * At the end, each table will point out what differences they found between the React and VanillaJS versions of TODO MVC.
 
-#### Alternate Exercise: IMDBExplorer
-* Same as above but with my IMDBExplorer app from my GA Code Sample.
-* Pro: Much simpler code, similar to how I was envisioning the code for this workshop to look.
-* Cons: Would rather not use my code, maybe not perfect implementation.
-
 ## Installing React
 
 #### Our Set Up vs. Production Set Up
-For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset. A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/).
+For this workshop, due to time constraints, we will be using CDN versions of React, Babel (a compiler that allows us to use next generation JavaScript features), Bootstrap's CSS, and FontAwesome Icons. CDNs allow us to use resources hosted on other sites within our code. In a production environment, however, it is inefficient to ping another website to retrieve an asset. A production-ready React application would most likely use a bundler, most commonly Webpack, to combine the React.js code and any other JavaScript libraries we use with our own code. Using Webpack (and a development server) would also allow us to split up our React code into multiple files. I usually have each React class that I build in a separate file. A good resource that goes further in depth on Webpack is [here](http://blog.andrewray.me/webpack-when-to-use-and-why/). We will also be using inline JavaScript rather than separating the JavaScript and HTML files due to a Chrome specification. We would also want to do that in a production environment.
 
 #### Project Set Up
 * For this workshop, the only technical tool you need installed is a text editor and a web browser. If you do not have one installed, please go ahead and download [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/).
 * If you have git installed on your computer, clone this repository. If not, you can also click the download button on the GitHub site to download the starter code files.
-* Open the `START.html` file on your computer in both your text editor and in the browser. 
-* Also open the `REACT.html` file in another tab in your text editor.
+* Open the `1-START_HTML.html` file on your computer in both your text editor and in the browser. 
+* Also open the `2-START_REACT.html` file in another tab in your text editor.
 * This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
 
-# Project: Recreating the Facebook Status Widget in React
 ## React Components
 If you open up the REACT.html file included in the repository you downloaded from GitHub, you will see a Hello World React component written in the file to start out.
 ```javascript
@@ -72,7 +74,7 @@ If you open up the REACT.html file included in the repository you downloaded fro
     )
 </script>
 ```
-Let's walk step by step through this code.
+Let's walk step by step through this code:
 
 * The JavaScript code starts out with declaring a class called `HelloWorld` which is a subclass of the React.Component class, which we get from the React CDN we have included at the top of the HTML file. To read more about JavaScript classes, [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) is a great resource.
 
@@ -81,6 +83,7 @@ Let's walk step by step through this code.
 * Finally, we tell React which component we want to render as well as which HTML element we want to attach that component to. 
 
 
+# Project: Recreating the Facebook Status Widget in React
 ### Breaking Components into Subcomponents
 At the beginning of this workshop, we discussed how many different places the reaction functionality is used on Facebook. Similarly, many of the items on our Facebook status widget are reused in other places outside of statuses. This is where React shines. We can build reusable components that are used within multiple parent components -- so we could have a Photo component and a Status component that both have a share subcomponent. If, in the future, we wanted to change something about the share component, we would only have to change the code in one place.
 
@@ -125,32 +128,45 @@ In order to show the value of the property within our component, we can use a si
 ```javascript
 <small>{ this.props.maxLetters } Remaining</small>
 ```
-Now lets add this to our status code.
+Now lets add this to our status code together.
+You can now add two status boxes with different numbers of remaining letters.
 
 #### Exercise: Extending LikeIcon Code
-Add a constructor to the LikeIcon. For now, pass liked as true from Like to the LikeIcon component.
+* Add a constructor to the LikeIcon. 
+* Pass liked as true from Like to the LikeIcon component.
+
+There are comments in the code on where to add the components.
 
 ### State
-Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
+Looking at the finished code, we want the like button and the the comment box to be interactive and update based on user input.
 
-The state of the component is any data that will change within it. For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component.
+The state of the component is any data that will change within it. For the Comment component, the state item that we want to be dynamic is the number of characters typed into the text-area. 
 
 In order to store that data, we will add a constructor to our JavaScript class and add the state declaration within it. It is just a normal JavaScript object. 
 ```javascript
-class Like extends React.Component {
+class Comment extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            liked: false
+           text: ''
         }
     }
 ```
 We can refer to the state of our component similarly to the props.
 ```javascript
-{ this.state.liked }
+{ this.state.text }
 ```
 
-#### Excercise: identifying and implementing state in the Comment component
+If we change the value of `text`, we will see a different value on our component.
+
+#### Excercise: identifying and implementing state in the LikeIcon component
+For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component. Follow the same steps that we did for the Comment component.
+
+* Add a constructor to the LikeIcon component.
+* Add state to the constructor.
+* Add a `liked` key to the object with the value `false`.
+* Display the value of the `liked` state within the component.
+
 What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
 
 ## Event Handlers
@@ -186,6 +202,11 @@ We can then make the letters remaining count dynamic.
 
 #### Exercise: Adding an Event Listener to the Like Button
 Add an event listener to the Like Button to update the state of the component. 
+
+* Add the event listener `handleClick` method.
+* Set the state of the component to toggle the liked property on click.
+* Set the property on the button to call the `handleClick` method on Click.
+* Bind the this keyword to the `handleClick` method in the constructor.
 
 ## Conditionals
 ### Rendering
@@ -229,7 +250,7 @@ Similarly, we can conditionally change the style of an element. React does follo
 Try to implement many different styles of likes using React components.
 
 #### Exercise: Create a Photo Component
-Try to create a Photo Post Component in React. Re-use subcomponents from earlier in this workshop.
+Try to create a Photo Post Component in React. Re-use subcomponents from earlier in this workshop (like the like and comment components) in creating the component.
 
 ### Tutorials
 * [React Documentation](https://facebook.github.io/react/tutorial/tutorial.html)
