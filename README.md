@@ -128,32 +128,45 @@ In order to show the value of the property within our component, we can use a si
 ```javascript
 <small>{ this.props.maxLetters } Remaining</small>
 ```
-Now lets add this to our status code.
+Now lets add this to our status code together.
+You can now add two status boxes with different numbers of remaining letters.
 
 #### Exercise: Extending LikeIcon Code
-Add a constructor to the LikeIcon. For now, pass liked as true from Like to the LikeIcon component.
+* Add a constructor to the LikeIcon. 
+* Pass liked as true from Like to the LikeIcon component.
+
+There are comments in the code on where to add the components.
 
 ### State
-Looking at the finished code, the like button and the the comment box are the two elements that we want to be interactive.
+Looking at the finished code, we want the like button and the the comment box to be interactive and update based on user input.
 
-The state of the component is any data that will change within it. For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component.
+The state of the component is any data that will change within it. For the Comment component, the state item that we want to be dynamic is the number of characters typed into the text-area. 
 
 In order to store that data, we will add a constructor to our JavaScript class and add the state declaration within it. It is just a normal JavaScript object. 
 ```javascript
-class Like extends React.Component {
+class Comment extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            liked: false
+           text: ''
         }
     }
 ```
 We can refer to the state of our component similarly to the props.
 ```javascript
-{ this.state.liked }
+{ this.state.text }
 ```
 
-#### Excercise: identifying and implementing state in the Comment component
+If we change the value of `text`, we will see a different value on our component.
+
+#### Excercise: identifying and implementing state in the LikeIcon component
+For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component. Follow the same steps that we did for the Comment component.
+
+* Add a constructor to the LikeIcon component.
+* Add state to the constructor.
+* Add a `liked` key to the object with the value `false`.
+* Display the value of the `liked` state within the component.
+
 What do you think changes within the comment component? Add the state and property to its constructor and then pass the liked state to the LikeIcon component.
 
 ## Event Handlers
@@ -189,6 +202,11 @@ We can then make the letters remaining count dynamic.
 
 #### Exercise: Adding an Event Listener to the Like Button
 Add an event listener to the Like Button to update the state of the component. 
+
+* Add the event listener `handleClick` method.
+* Set the state of the component to toggle the liked property on click.
+* Set the property on the button to call the `handleClick` method on Click.
+* Bind the this keyword to the `handleClick` method in the constructor.
 
 ## Conditionals
 ### Rendering
@@ -232,7 +250,7 @@ Similarly, we can conditionally change the style of an element. React does follo
 Try to implement many different styles of likes using React components.
 
 #### Exercise: Create a Photo Component
-Try to create a Photo Post Component in React. Re-use subcomponents from earlier in this workshop.
+Try to create a Photo Post Component in React. Re-use subcomponents from earlier in this workshop (like the like and comment components) in creating the component.
 
 ### Tutorials
 * [React Documentation](https://facebook.github.io/react/tutorial/tutorial.html)
