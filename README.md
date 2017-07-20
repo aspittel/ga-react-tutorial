@@ -5,7 +5,7 @@ In this workshop, we will be learning the basics of the React JavaScript framewo
 * React encourages reusable, maintainable, and interactive front-end code.
 
 ## Learning Objectives
-* Understand what makes React different from other JavaScript frameworks and JavaScript without a framwork.
+* Understand what makes React different from other JavaScript frameworks and JavaScript without a framework.
 * Install and setup React.
 * Understand best practices for React setup.
 * Have access to and work on building a sample project in React.
@@ -31,11 +31,11 @@ React is a web framework developed by Facebook in 2013 in order to make elements
 * With your neighbor, discuss what differences you see between the React code and the vanilla JavaScript code. Write down your findings on the table next to you.
 
 #### Alternate Exercise: TODO MVC
-* With the other people at your table, look at the code on the [TodoMVC](http://todomvc.com/) website. This site shows the same to do list application written in a bunch of different front end frameworks. 
+* With the other people at your table, look at the code on the [TodoMVC](http://todomvc.com/) website. This site shows the same to do list application written in a bunch of different front end frameworks.
 * For this exercise, look at the [VanillaJS](http://todomvc.com/examples/vanillajs/) and [React](http://todomvc.com/examples/react/#/) examples on their site.
 * Vanilla is what developers use to refer to JavaScript that doesn't make use of a framework.
 * If you know another front-end framework like Angular, VueJS, or JQuery, it may be helpful to look at their implementations after this workshop.
-* On the side of the page, there are links to Github source code for each version of the code. Go ahead and look through the files and see what differences there are between the implementations. 
+* On the side of the page, there are links to Github source code for each version of the code. Go ahead and look through the files and see what differences there are between the implementations.
 * At the end, each table will point out what differences they found between the React and VanillaJS versions of TODO MVC.
 
 ## Installing React
@@ -46,7 +46,7 @@ For this workshop, due to time constraints, we will be using CDN versions of Rea
 #### Project Set Up
 * For this workshop, the only technical tool you need installed is a text editor and a web browser. If you do not have one installed, please go ahead and download [Sublime Text](https://www.sublimetext.com/) or [Atom](https://atom.io/).
 * If you have git installed on your computer, clone this repository. If not, you can also click the download button on the GitHub site to download the starter code files.
-* Open the `1-START_HTML.html` file on your computer in both your text editor and in the browser. 
+* Open the `1-START_HTML.html` file on your computer in both your text editor and in the browser.
 * Also open the `2-START_REACT.html` file in another tab in your text editor.
 * This file has HTML and CSS code that we will be translating to React code. If you have extra time, feel free to play around with the styling and layout.
 
@@ -80,7 +80,7 @@ Let's walk step by step through this code:
 
 * Within the `HelloWorld` class, we declare a render method which returns the HTML code that we want our component to display. In this case, that is a simple "Hello World" message, but you will see later on that what we render can be much more complex and interactive.
 
-* Finally, we tell React which component we want to render as well as which HTML element we want to attach that component to. 
+* Finally, we tell React which component we want to render as well as which HTML element we want to attach that component to.
 
 
 # Project: Recreating the Facebook Status Widget in React
@@ -132,7 +132,7 @@ Now lets add this to our status code together.
 You can now add two status boxes with different numbers of remaining letters.
 
 #### Exercise: Extending LikeIcon Code
-* Add a constructor to the LikeIcon. 
+* Add a constructor to the LikeIcon.
 * Pass liked as true from Like to the LikeIcon component.
 
 There are comments in the code on where to add the components.
@@ -140,9 +140,9 @@ There are comments in the code on where to add the components.
 ### State
 Looking at the finished code, we want the like button and the the comment box to be interactive and update based on user input.
 
-The state of the component is any data that will change within it. For the Comment component, the state item that we want to be dynamic is the number of characters typed into the text-area. 
+The state of the component is any data that will change within it. For the Comment component, the state item that we want to be dynamic is the number of characters typed into the text-area.
 
-In order to store that data, we will add a constructor to our JavaScript class and add the state declaration within it. It is just a normal JavaScript object. 
+In order to store that data, we will add a constructor to our JavaScript class and add the state declaration within it. It is just a normal JavaScript object.
 ```javascript
 class Comment extends React.Component {
     constructor (props) {
@@ -188,7 +188,7 @@ Usually when we have an event listener, we will want to update the state of the 
 
 First, we need to make sure that the keyword `this` is accessible within our method. We can add `this.handleChange = this.handleChange.bind(this)` to the constructor in order to do this automatically.
 
-In order to change the state of the component, we can use the setState method, which looks like this: 
+In order to change the state of the component, we can use the setState method, which looks like this:
 ```javascript
 this.setState({
     text: event.target.value
@@ -201,7 +201,7 @@ We can then make the letters remaining count dynamic.
 ```
 
 #### Exercise: Adding an Event Listener to the Like Button
-Add an event listener to the Like Button to update the state of the component. 
+Add an event listener to the Like Button to update the state of the component.
 
 * Add the event listener `handleClick` method.
 * Set the state of the component to toggle the liked property on click.
@@ -232,7 +232,7 @@ Catch: You must return something from the else statement (null does work), omitt
 ### ClassNames
 We can also have different classNames on HTML elements depending on the props or state of the component. Here I used a terniary statement, but you could abstract this out to a method or use a state variable as the entire class name.
 ```javascript                                
-<button type="button" 
+<button type="button"
         className={ "btn no-outline " + (this.state.liked ? "btn-outline-primary" : "btn-secondary") }
         onClick={ this.toggleLike }
 >
