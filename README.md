@@ -163,7 +163,7 @@ If we change the value of `text`, we will see a different value on our component
 #### Exercise: identifying and implementing state in the LikeIcon component
 For the like button, the data that changes is whether or not the status has been liked, so we want to store whether or not the status has been liked within the state of the component. Follow the same steps that we did for the Comment component.
 
-* Add a constructor to the LikeIcon component.
+* Add a constructor to the Like component.
 * Add state to the constructor.
 * Add a `liked` key to the state object with the value `false`.
 * Display the value of the `liked` state within the component.
